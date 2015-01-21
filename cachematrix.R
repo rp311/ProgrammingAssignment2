@@ -1,18 +1,19 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## This function makeCacheMatrix creates a matrix that can cache the inverse of the matrix. It returns
+## a list of four fuctions.
 
 makeCacheMatrix <- function(x = matrix()) {
-    inv.mat <- NULL
+    inv.mat <- NULL       # set inverse matrix to NUL
     set <- function(y) {
-        x <<- y
-        inv.mat <<- NULL
+        x <<- y           # set the value
+        inv.mat <<- NULL  # clear the cache with NULL
     }
-    get <- function() x
-    setinverse <- function(solve) inv.mat <<- solve
-    getinverse <- function() inv.mat
-    list(set = set, get = get,
+    get <- function() x                             # function to get the value of the matrix
+    setinverse <- function(solve) inv.mat <<- solve # function to set the inverse of the matrix
+    getinverse <- function() inv.mat                # function to get the inverse of the matrix
+    list(set = set, get = get,                      # generate a list of functions
          setinverse = setinverse,
          getinverse = getinverse)
 }
@@ -20,14 +21,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## This function cacheSolve calculates the inverse of a matrix which has been created in the above
 ## function makeCacheMatrix. This function checks to see if the matrix has already been calculated.
-## If it has it uses that value from the cache. If it hasn't it calcultes the inverse of the matrix.
+## If it has, it uses that value from the cache. If it hasn't it calcultes the inverse of the matrix.
 
 cacheSolve <- function(x, ...) {
     # Return a matrix that is the inverse of x
     inv.mat <- x$getinverse()          # get cached inverse value
-    if(!is.null(inv.mat)) {   		   # check if the cache is not empty, if it is not then return it.
+    if(!is.null(inv.mat)) {            # check if the cache is not empty, if it is not then return it.
         message("getting cached data") # helpful message
-        return(inv.mat)				   # return the inverse matrix
+        return(inv.mat)                # return the inverse matrix
     }
     message("calculating new inverse")
     matrix <- x$get()        # get the matrix
