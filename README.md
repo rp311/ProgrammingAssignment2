@@ -12,7 +12,7 @@ Programming Assignment you will take advantage of the scoping rules of
 the R language and how they can be manipulated to preserve state inside
 of an R object.
 
-*** Data Science Specialization 
+### Data Science Specialization 
 
 * Uses R 
 * Nine courses 
