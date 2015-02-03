@@ -18,6 +18,12 @@ of an R object.
 * Nine courses 
 * Goes from raw data to data products
 
+## Data Science Specialization 
+
+* Uses R 
+* Nine courses 
+* Goes from raw data to data products
+
 ### Example: Caching the Mean of a Vector
 
 In this example we introduce the `<<-` operator which can be used to
